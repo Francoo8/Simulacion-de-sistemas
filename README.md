@@ -51,3 +51,12 @@ Parámetros Ruleta: Saldo o capital inicial ($PnL$), monto fijo o dinámico de l
   
   6. Ejecutar el Simulador de la Ruleta y Evolución de Capital
   python ruleta.py
+# 6. Capturas de imagen
+Ejemplo LotkaVolterra.py:
+<img width="1920" height="1080" alt="Captura de pantalla (137)" src="https://github.com/user-attachments/assets/bd72f2c0-f7bb-49b1-9e04-6c5df0eea8bf" />
+Ejemplo ruleta.py
+<img width="1920" height="1080" alt="Captura de pantalla (138)" src="https://github.com/user-attachments/assets/93df5051-ab83-43fd-b36c-6f8e8e43f122" />
+Ejemplo generador_distribuciones.py
+<img width="1920" height="1080" alt="Captura de pantalla (139)" src="https://github.com/user-attachments/assets/6bc4f72c-146b-42a5-817f-1dacd399677b" />
+Ejemplo CovidSimulador.py
+<img width="1920" height="1080" alt="Captura de pantalla (140)" src="https://github.com/user-attachments/assets/505863c9-682a-42c6-8dc8-2661158e5626" />
