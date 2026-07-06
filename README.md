@@ -1,17 +1,53 @@
-1. Título del Proyecto y Descripción GeneralProyecto 1: Simulador de Propagación COVID-19 mediante Autómatas Celulares.  Proyecto 2: Simulación Lotka-Volterra aplicada a una Planta Procesadora de Quinua.  Proyecto 3: Generador de Números Pseudoaleatorios y Distribuciones de Probabilidad.Proyecto 4: Simulador Estadístico del Juego de la Ruleta.Introducción: Estos cuatro programas conforman un portafolio avanzado de herramientas de modelado y simulación de sistemas complejos. Su objetivo es transformar reglas lógico-matemáticas elementales y variables estocásticas en representaciones visuales y analíticas en tiempo real para optimizar la toma de decisiones críticas en entornos de salud pública, optimización agroindustrial y análisis probabilístico de riesgos.  2. Explicación de los Modelos UtilizadosPara la Planta de Quinua (Lotka-Volterra)Explica la analogía industrial exacta del sistema:  Stock de quinua ($x$): Representa la materia prima disponible en almacén. Crece de forma lineal con la tasa de llegada de los productores ($\alpha$) y decrece exponencialmente según el ritmo de consumo de la planta ($\beta$).  Nivel de procesamiento ($y$): Representa la capacidad activa de producción diaria. Crece en función del stock disponible que alimenta la cadena ($\delta$) y disminuye debido a paradas por mantenimiento programado, costos fijos o fallas mecánicas ($\gamma$).  Para el COVID-19 (Autómatas Celulares)Representa un sistema dinámico descentralizado mapeado sobre una cuadrícula de celdas de $N \times N$. Las transiciones temporales de los estados individuales (Sano, Infectado, Recuperado, Fallecido o Espacio Vacío) no dependen de variables globales, sino que se calculan localmente ciclo a ciclo aplicando la Vecindad de Moore (evaluación de los 8 vecinos adyacentes a cada celda).  Para el Generador de Números Pseudoaleatorios y DistribucionesSe basa en algoritmos puramente aritméticos (como el Método Congruencial Lineal y Multiplicativo) para estructurar una secuencia homogénea de valores pseudoaleatorios en el rango $[0, 1)$. Utilizando métodos de transformación matemática (como la Transformada Inversa o Box-Muller), estos números uniformes se transforman en variables estocásticas capaces de replicar el comportamiento de fenómenos reales mediante densidades continuas o discretas (Normal, Exponencial, Uniforme, etc.).Para el Simulador Estadístico de la RuletaModela un proceso estocástico independiente clásico de la teoría de juegos. Al ejecutar múltiples iteraciones secuenciales bajo la aleatoriedad de la rueda, se analiza matemáticamente la Ley de los Grandes Números y la Falacia del Apostador. Muestra de forma empírica cómo las rachas de ganancias a corto plazo colapsan sistemáticamente frente a la ventaja matemática fija que posee la casa (el cero o doble cero).3. Descripción de Variables y ParámetrosParámetros Quinua: Coeficientes $\alpha$ (reposición), $\beta$ (consumo), $\delta$ (conversión), $\gamma$ (reducción por fallas), condiciones iniciales ($x_0, y_0$), tiempo total de operación y pasos de integración numéricos.  Parámetros Autómatas: Dimensión de la cuadrícula ($N \times N$), porcentaje inicial de individuos infectados, densidad de espacios vacíos/inmunes asignados, probabilidad de contagio por contacto, tiempo requerido de recuperación y probabilidad de deceso diario.  Parámetros Generador: Semilla inicial ($X_0$), constantes multiplicativas ($a$), incrementos ($c$), módulo aritmético ($m$), cantidad total de números a generar y parámetros específicos de la distribución elegida (como la media $\mu$ y desviación $\sigma$ para la Normal).Parámetros Ruleta: Saldo o capital inicial ($PnL$), monto fijo o dinámico de la apuesta por giro, tipo de mercado seleccionado (Rojo/Negro, Par/Impar, Número pleno) y el total de lanzamientos simulados.4. Requisitos del Sistema y Librerías UtilizadasLenguaje: Python 3.10+.  Librerías principales:customtkinter (Desarrollo de interfaces gráficas con diseño moderno y oscuro nativo).tkinter y ttk (Ventanas y controles de la interfaz).  matplotlib (Generación de curvas de población, histogramas de ajuste y planos de fase interactivos).  scipy (Uso del método odeint para resolver los sistemas de ecuaciones diferenciales ordinarias del modelo continuo).  numpy (Estructuración de vectores de tiempo, matrices numéricas y transformaciones probabilísticas).5. Instrucciones de Instalación y EjecuciónBash# 1. Clonar el repositorio completo
-git clone https://github.com/tu-usuario/tu-repositorio.git
+# 1. Título del Proyecto y Descripción General
+   Proyecto 1: Simulador de Propagación COVID-19 mediante Autómatas Celulares.
+   Proyecto 2: Simulación Lotka-Volterra aplicada a una Planta Procesadora de Quinua.
+   Proyecto 3: Generador de Números Pseudoaleatorios y Distribuciones de Probabilidad.
+   Proyecto 4: Simulador Estadístico del Juego de la Ruleta.
+Introducción:
+Estos cuatro programas conforman un portafolio avanzado de herramientas de modelado y simulación de sistemas complejos. Su objetivo es transformar reglas lógico-matemáticas elementales y variables estocásticas en representaciones visuales y analíticas en tiempo real para optimizar la toma de decisiones críticas en entornos de salud pública, optimización agroindustrial y análisis probabilístico de riesgos.
 
-# 2. Instalar el entorno de dependencias gráficas y matemáticas
-pip install customtkinter matplotlib scipy numpy
+# 2. Explicación de los Modelos Utilizados
 
-# 3. Ejecutar el Simulador Agroindustrial de la Planta de Quinua
-python LotkaVolterra.py
+Para la Planta de Quinua (Lotka-Volterra)Explica la analogía industrial exacta del sistema: Stock de quinua ($x$): Representa la materia prima disponible en almacén. Crece de forma lineal con la tasa de llegada de los productores ($\alpha$) y decrece exponencialmente según el ritmo de consumo de la planta ($\beta$). Nivel de procesamiento ($y$): Representa la capacidad activa de producción diaria. Crece en función del stock disponible que alimenta la cadena ($\delta$) y disminuye debido a paradas por mantenimiento programado, costos fijos o fallas mecánicas ($\gamma$).
 
-# 4. Ejecutar el Simulador Epidemiológico de Autómatas Celulares
-python simulador_covid.py
+Para el COVID-19 (Autómatas Celulares)Representa un sistema dinámico descentralizado mapeado sobre una cuadrícula de celdas de $N \times N$. Las transiciones temporales de los estados individuales (Sano, Infectado, Recuperado, Fallecido o Espacio Vacío) no dependen de variables globales, sino que se calculan localmente ciclo a ciclo aplicando la Vecindad de Moore (evaluación de los 8 vecinos adyacentes a cada celda).  
 
-# 5. Ejecutar el Generador Estadístico de Distribuciones
-python generador_distribuciones.py
+Para el Generador de Números Pseudoaleatorios y DistribucionesSe basa en algoritmos puramente aritméticos (como el Método Congruencial Lineal y Multiplicativo) para estructurar una secuencia homogénea de valores pseudoaleatorios en el rango $[0, 1)$. Utilizando métodos de transformación matemática (como la Transformada Inversa o Box-Muller), estos números uniformes se transforman en variables estocásticas capaces de replicar el comportamiento de fenómenos reales mediante densidades continuas o discretas (Normal, Exponencial, Uniforme, etc.).
 
-# 6. Ejecutar el Simulador de la Ruleta y Evolución de Capital
-python simulador_ruleta.py
+Para el Simulador Estadístico de la RuletaModela un proceso estocástico independiente clásico de la teoría de juegos. Al ejecutar múltiples iteraciones secuenciales bajo la aleatoriedad de la rueda, se analiza matemáticamente la Ley de los Grandes Números y la Falacia del Apostador. Muestra de forma empírica cómo las rachas de ganancias a corto plazo colapsan sistemáticamente frente a la ventaja matemática fija que posee la casa (el cero o doble cero).
+
+# 3. Descripción de Variables y ParámetrosParámetros Quinua:
+Coeficientes $\alpha$ (reposición), $\beta$ (consumo), $\delta$ (conversión), $\gamma$ (reducción por fallas), condiciones iniciales ($x_0, y_0$), tiempo total de operación y pasos de integración numéricos.
+
+Parámetros Autómatas: Dimensión de la cuadrícula ($N \times N$), porcentaje inicial de individuos infectados, densidad de espacios vacíos/inmunes asignados, probabilidad de contagio por contacto, tiempo requerido de recuperación y probabilidad de deceso diario.  
+
+Parámetros Generador: Semilla inicial ($X_0$), constantes multiplicativas ($a$), incrementos ($c$), módulo aritmético ($m$), cantidad total de números a generar y parámetros específicos de la distribución elegida (como la media $\mu$ y desviación $\sigma$ para la Normal).
+
+Parámetros Ruleta: Saldo o capital inicial ($PnL$), monto fijo o dinámico de la apuesta por giro, tipo de mercado seleccionado (Rojo/Negro, Par/Impar, Número pleno) y el total de lanzamientos simulados.
+
+# 4. Requisitos del Sistema y Librerías Utilizadas
+  Lenguaje: Python 3.10+.  
+  Librerías principales:
+  customtkinter (Desarrollo de interfaces gráficas con diseño moderno y oscuro nativo)
+  tkinter y ttk (Ventanas y controles de la interfaz).  
+  matplotlib (Generación de curvas de población, histogramas de ajuste y planos de fase interactivos).  
+  scipy (Uso del método odeint para resolver los sistemas de ecuaciones diferenciales ordinarias del modelo continuo).  
+  numpy (Estructuración de vectores de tiempo, matrices numéricas y transformaciones probabilísticas).
+# 5. Instrucciones de Instalación y EjecuciónBash
+  1. Clonar el repositorio completo
+  git clone https://github.com/tu-usuario/tu-repositorio.git
+  
+  2. Instalar el entorno de dependencias gráficas y matemáticas
+  pip install customtkinter matplotlib scipy numpy
+  
+  3. Ejecutar el Simulador Agroindustrial de la Planta de Quinua
+  python LotkaVolterra.py
+  
+  4. Ejecutar el Simulador Epidemiológico de Autómatas Celulares
+  python CovidSimulador.py
+  
+  5. Ejecutar el Generador Estadístico de Distribuciones
+  python generador_distribuciones.py
+  
+  6. Ejecutar el Simulador de la Ruleta y Evolución de Capital
+  python ruleta.py
